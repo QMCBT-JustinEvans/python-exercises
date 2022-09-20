@@ -176,3 +176,210 @@ a = 1 # a not needed i * i would work
 for i in range(1,10):
     print(str(a)*i)
     a += 1
+
+"""
+c. break and continue
+"""
+
+"""
+i. Write a program that prompts the user for a positive integer. 
+Next write a loop that prints out the numbers from the number the user entered down to 1.
+"""
+pos_int = int(input('Choose a Posititive Intiger: '))
+while pos_int > 0:
+    print(pos_int)
+    pos_int -= 1
+    if pos_int == 0:
+        break
+    else:
+        print(f'{pos_int} is not a positive integer!')  
+
+"""
+ii. The input function can be used to prompt for input 
+and use that input in your python code. 
+
+Prompt the user to enter a positive number 
+and write a loop that counts from 0 to that number. 
+
+(Hints: first make sure that the value the user entered is a valid number, 
+also note that the input function returns a string, 
+so you'll need to convert this to a numeric type.)
+"""
+pos_int = int(input('Choose a Posititive Intiger: '))
+number = 0
+while pos_int > 0:
+    print(number)
+    number += 1
+    if number > pos_int:
+        break
+    else:
+        print(f'{pos_int} is not a positive integer!')    
+
+"""
+iii. Prompt the user for an odd number between 1 and 50. 
+Use a loop and a break statement to continue prompting the user if they enter invalid input. 
+(Hint: use the isdigit method on strings to determine this). 
+Use a loop and the continue statement to output all the odd numbers between 1 and 50, 
+except for the number the user entered.
+
+Your output should look like this:
+Number to skip is: 27
+
+Here is an odd number: 1
+Here is an odd number: 3
+Here is an odd number: 5
+Here is an odd number: 7
+Here is an odd number: 9
+Here is an odd number: 11
+Here is an odd number: 13
+Here is an odd number: 15
+Here is an odd number: 17
+Here is an odd number: 19
+Here is an odd number: 21
+Here is an odd number: 23
+Here is an odd number: 25
+Yikes! Skipping number: 27
+Here is an odd number: 29
+Here is an odd number: 31
+Here is an odd number: 33
+Here is an odd number: 35
+Here is an odd number: 37
+Here is an odd number: 39
+Here is an odd number: 41
+Here is an odd number: 43
+Here is an odd number: 45
+Here is an odd number: 47
+Here is an odd number: 49
+"""
+while True:
+    odd_num = input('Enter an odd number between 1 and 50: ')
+    
+    if odd_num.isdigit():
+        #print('This is a digit')
+        if int(odd_num) % 2 != 0:
+            #print('This is an odd number')
+            if (int(odd_num) > 1) and (int(odd_num) < 50):
+                #print('This number is between 1-50')
+                break
+                
+odd_num = int(odd_num)            
+                
+for i in range(1, 50):
+    if i == odd_num:
+        print(f'Yikes! Skipping number: {odd_num}')
+        continue
+    if i % 2 == 1:
+        print(f'Here is an odd number: {i}')
+
+"""
+3. Fizzbuzz
+"""
+
+"""
+One of the most common interview questions for entry-level programmers is the FizzBuzz test. 
+Developed by Imran Ghory, the test is designed to test basic looping 
+and conditional logic skills.
+
+* Write a program that prints the numbers from 1 to 100.
+* For multiples of three print "Fizz" instead of the number
+* For the multiples of five print "Buzz".
+* For numbers which are multiples of both three and five print "FizzBuzz".
+"""
+for i in range(1,101):
+    if i % 15 == 0:
+        print(f'{i} - FizzBuzz')
+        continue
+    if i % 3 == 0:
+        print (f'{i} - Fizz')
+        continue
+    if i % 5 == 0:
+        print(f'{i} - Buzz')
+        continue
+    print(i)
+
+"""
+4. Display a table of powers.
+"""
+
+"""
+* Prompt the user to enter an integer.
+* Display a table of squares and cubes from 1 to the value entered.
+* Ask if the user wants to continue.
+* Assume that the user will enter valid data.
+* Only continue if the user agrees to.
+
+Example Output
+What number would you like to go up to? 5
+
+Here is your table!
+
+number | squared | cubed
+------ | ------- | -----
+1      | 1       | 1
+2      | 4       | 8
+3      | 9       | 27
+4      | 16      | 64
+5      | 25      | 125
+"""
+while True:
+    user_num = int(input('Choose an integer: '))
+
+    for i in range(1, user_num + 1):
+        print(f'{i} |{i**2} |{i**3}')
+    
+    user_yn = input('Would you like to continue? y/n: ')
+    if user_yn.lower() != 'y':
+        break
+
+"""
+Bonus: Research python's format string specifiers to align the table
+"""
+
+"""
+5. Convert given number grades into letter grades.
+
+* Prompt the user for a numerical grade from 0 to 100.
+* Display the corresponding letter grade.
+* Prompt the user to continue.
+* Assume that the user will enter valid integers for the grades.
+* The application should only continue if the user agrees to.
+* Grade Ranges:
+
+    * A : 100 - 88
+    * B : 87 - 80
+    * C : 79 - 67
+    * D : 66 - 60
+    * F : 59 - 0
+"""
+while True:
+    user_grade = int(input('Enter a numerical grade 1-100: '))
+    if user_grade >=88:
+        print('A')
+    elif user_grade >=80:
+        print('B')
+    elif user_grade >=67:
+        print('C')
+    elif user_grade >=60:
+        print('D')
+    else:
+        print('F')
+    
+    user_yn = input('Would you like to continue? y/n: ')
+    if user_yn.lower() != 'y':
+        break
+
+"""
+Bonus
+Edit your grade ranges to include pluses and minuses (ex: 99-100 = A+).
+"""
+
+"""
+6. Create a list of dictionaries where each dictionary represents a book that you have read. 
+Each dictionary in the list should have the keys title, author, and genre. 
+Loop through the list and print out information about each book.
+"""
+
+
+"""
+a. Prompt the user to enter a genre, then loop through your books list and print out the titles of all the books in that genre.
+"""
